@@ -1,0 +1,35 @@
+<html>
+   <head>
+      <title>Angular JS Controller</title>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+   </head>
+   
+   <body>
+      
+      <div ng-app = "mainApp" ng-controller = "msgController">
+        <h1 ng-model= "msg.message">
+            
+            {{msg.fullText()}}
+        </h1>
+        
+      </div>
+      
+      <script>
+         var mainApp = angular.module("mainApp", []);
+         
+         mainApp.controller('msgController', function($scope) {
+            $scope.msg = {
+ 
+                message: "Hello World!",     
+               
+               fullText: function() {
+                  var msgObject;
+                  msgObject = $scope.msg;
+                  return msgObject.message;
+               }
+            };
+         });
+      </script>
+      
+   </body>
+</html>

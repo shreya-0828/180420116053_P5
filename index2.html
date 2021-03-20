@@ -1,0 +1,82 @@
+<html>
+   <head>
+      <title>Angular JS Table</title>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+      
+      <style>
+         table, th , td {
+            border: 1px solid grey;
+            border-collapse: collapse;
+            padding: 5px;
+         }
+         table tr:nth-child(odd) {
+            background-color: #f2f2f2;
+         }
+         table tr:nth-child(even) {
+            background-color: #ffffff;
+         }
+      </style>
+   </head>
+   
+   <body>
+      <h2>AngularJS Sample Application</h2>
+      <div ng-app = "mainApp" ng-controller = "infoController">
+ 
+        <table border = "0">
+            <tr>
+               <td>Name: <input type="text", ng-model="info.name"></td>
+            </tr>
+            <tr>
+               <td>Age: <input type="text", ng-model="info.age"></td>
+            </tr>
+            <tr>
+                <td>Mobile: <input type="text", ng-model="info.mobile"> </td>
+            </tr>
+            <tr>
+                <td>Emails</td>
+            </tr>
+            <tr ng-repeat = "email in info.Emails">
+                <td>Description: <input type="text", ng-model="email.discription">, email : <input type="text", ng-model="email.email">
+            </tr>
+        </table>
+         <br><br>
+        <table border = "0">
+            <tr>
+               <td>Name: {{info.name}} </td>
+            </tr>
+            <tr>
+               <td>Age: {{info.age}} </td>
+            </tr>
+            <tr>
+                <td>Mobile: {{info.mobile}} </td>
+            </tr>
+            <tr>
+                <td>Emails</td>
+            </tr>
+            <tr ng-repeat = "email in info.Emails">
+                <td>Description: {{email.discription}} email : {{email.email}}
+            </tr>
+        </table>    
+      </div>
+      
+      <script>
+         var mainApp = angular.module("mainApp", []);
+         
+         mainApp.controller('infoController', function($scope) {
+            $scope.info = {
+                name: "shreya",
+                age: 20,
+                mobile: "7600123456",
+               
+                Emails:[
+                  {discription:'official Email', email:'shreya@gmail.com'},
+                  {discription:'personal1 Email',email:'pqr@gmail.com'},
+                  {discription:'personal2 Email',email:'xyz@gmail.com'},
+               ],      
+ 
+            };
+         });
+      </script>
+      
+   </body>
+</html>
